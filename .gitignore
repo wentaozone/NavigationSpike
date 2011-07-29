@@ -1,0 +1,8 @@
+
+# osx noise
+.DS_Store
+profile
+
+# xcode noise
+*.xcodeproj/project.xcworkspace/
+*.xcodeproj/xcuserdata/

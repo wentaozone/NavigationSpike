@@ -40,18 +40,18 @@
 		6ECA7A9913E30B07008E4E01 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6ECA7A9B13E30B07008E4E01 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6ECA7A9D13E30B07008E4E01 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		6ECA7AA113E30B07008E4E01 /* NavigationSpike-Info.plist */ = {isa = PBXFileReference; path = "NavigationSpike-Info.plist"; sourceTree = "<group>"; };
+		6ECA7AA113E30B07008E4E01 /* NavigationSpike-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NavigationSpike-Info.plist"; sourceTree = "<group>"; };
 		6ECA7AA313E30B07008E4E01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6ECA7AA513E30B07008E4E01 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6ECA7AA713E30B07008E4E01 /* NavigationSpike-Prefix.pch */ = {isa = PBXFileReference; path = "NavigationSpike-Prefix.pch"; sourceTree = "<group>"; };
-		6ECA7AA813E30B07008E4E01 /* NavigationSpikeAppDelegate.h */ = {isa = PBXFileReference; path = NavigationSpikeAppDelegate.h; sourceTree = "<group>"; };
+		6ECA7AA713E30B07008E4E01 /* NavigationSpike-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NavigationSpike-Prefix.pch"; sourceTree = "<group>"; };
+		6ECA7AA813E30B07008E4E01 /* NavigationSpikeAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationSpikeAppDelegate.h; sourceTree = "<group>"; };
 		6ECA7AA913E30B07008E4E01 /* NavigationSpikeAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationSpikeAppDelegate.m; sourceTree = "<group>"; };
 		6ECA7AAC13E30B07008E4E01 /* NavigationSpike.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NavigationSpike.xcdatamodel; sourceTree = "<group>"; };
 		6ECA7AB313E30B07008E4E01 /* NavigationSpikeTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavigationSpikeTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ECA7AB413E30B07008E4E01 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		6ECA7ABE13E30B07008E4E01 /* NavigationSpikeTests-Info.plist */ = {isa = PBXFileReference; path = "NavigationSpikeTests-Info.plist"; sourceTree = "<group>"; };
+		6ECA7ABE13E30B07008E4E01 /* NavigationSpikeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NavigationSpikeTests-Info.plist"; sourceTree = "<group>"; };
 		6ECA7AC013E30B07008E4E01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6ECA7AC213E30B07008E4E01 /* NavigationSpikeTests.h */ = {isa = PBXFileReference; path = NavigationSpikeTests.h; sourceTree = "<group>"; };
+		6ECA7AC213E30B07008E4E01 /* NavigationSpikeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationSpikeTests.h; sourceTree = "<group>"; };
 		6ECA7AC313E30B07008E4E01 /* NavigationSpikeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationSpikeTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,6 +198,9 @@
 /* Begin PBXProject section */
 		6ECA7A8A13E30B07008E4E01 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = 6ECA7A8D13E30B07008E4E01 /* Build configuration list for PBXProject "NavigationSpike" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;

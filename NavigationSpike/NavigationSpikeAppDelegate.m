@@ -15,15 +15,71 @@
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
+@synthesize musicPlayer, dateWidget, currentPage, page1, page2;
+
+-(void)flipToPage:(UIView *)page
+{
+    [self.currentPage removeFromSuperview];
+    
+    [self.window addSubview:page];
+    [self.window sendSubviewToBack:page];
+    self.currentPage = page;
+}
+
+-(void)page1Tapped 
+{
+    NSLog(@"Page 1 tapped");
+    if (!self.page2) {
+        CGRect fullScreen = self.window.frame;
+        self.page2 = [[UIView alloc] initWithFrame:fullScreen];
+        self.page2.backgroundColor = [UIColor grayColor];
+        UIGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(page2Tapped)];
+        [self.page2 addGestureRecognizer:tapRecognizer];
+    }
+    [self flipToPage: self.page2];
+}
+
+-(void)page2Tapped 
+{
+    [self flipToPage: self.page1];
+}
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    //Load a fake music player that will be global
+    CGRect top = CGRectMake(0,0,320,100);
+    self.musicPlayer = [[UIView alloc] initWithFrame:top];
+    self.musicPlayer.backgroundColor = [UIColor greenColor];
+    self.musicPlayer.alpha = 0.8;
+    [self.window addSubview:musicPlayer];
+    
+    //Load a fake Date block that will move around
+    CGRect date = CGRectMake(0,300,100,100);
+    self.dateWidget = [[UIView alloc] initWithFrame:date];
+    self.dateWidget.backgroundColor = [UIColor blueColor];
+    [self.window addSubview:dateWidget];
+    
+    //Load Page 1
+    CGRect fullScreen = self.window.frame;
+    self.page1 = [[UIView alloc] initWithFrame:fullScreen];
+    self.page1.backgroundColor = [UIColor redColor];
+    UIGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(page1Tapped)];
+    [self.page1 addGestureRecognizer:tapRecognizer];
+
+//    [self.window addSubview:page1];
+//    [self.window sendSubviewToBack:page1];
+    [self flipToPage:page1];
+    
+
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }
-
+     
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     /*

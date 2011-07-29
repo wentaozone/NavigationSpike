@@ -16,6 +16,14 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+
+@property(nonatomic, retain) UIView *musicPlayer;
+@property(nonatomic, retain) UIView *dateWidget;
+
+@property(nonatomic, retain) UIView *currentPage;
+@property(nonatomic, retain) UIView *page1;
+@property(nonatomic, retain) UIView *page2;
+
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
