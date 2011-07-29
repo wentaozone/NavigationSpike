@@ -26,22 +26,67 @@
     self.currentPage = page;
 }
 
--(void)page1Tapped 
+-(UIView *)page1
 {
-    NSLog(@"Page 1 tapped");
-    if (!self.page2) {
+    if (!page1) {
+        CGRect fullScreen = self.window.frame;
+        self.page1 = [[UIView alloc] initWithFrame:fullScreen];
+        self.page1.backgroundColor = [UIColor redColor];
+        UIGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(page1Tapped)];
+        [self.page1 addGestureRecognizer:tapRecognizer];
+    }
+    return page1;
+}
+
+
+-(UIView *)page2
+{
+    if (!page2) {
         CGRect fullScreen = self.window.frame;
         self.page2 = [[UIView alloc] initWithFrame:fullScreen];
         self.page2.backgroundColor = [UIColor grayColor];
         UIGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(page2Tapped)];
         [self.page2 addGestureRecognizer:tapRecognizer];
     }
+    return page2;
+}
+
+-(void)page1Tapped 
+{
+    NSLog(@"Page 1 tapped");
     [self flipToPage: self.page2];
+    [UIView animateWithDuration:1.0 
+                          delay:0.0 
+                        options:UIViewAnimationOptionCurveEaseOut 
+     
+         animations:^{
+             CGRect bottom = CGRectMake(50, self.window.bounds.size.height - 50, 50, 50);
+             self.dateWidget.frame = bottom;
+         }
+
+         completion:^(BOOL finished){
+         }
+     
+     ];    
 }
 
 -(void)page2Tapped 
 {
+    NSLog(@"Page 2 tapped");
     [self flipToPage: self.page1];
+    [UIView animateWithDuration:1.0 
+                          delay:0.0 
+                        options:UIViewAnimationOptionCurveEaseOut 
+     
+                     animations:^{
+                         CGRect start = CGRectMake(0,300,100,100);
+                         self.dateWidget.frame = start;
+                     }
+     
+                     completion:^(BOOL finished){
+                     }
+     
+     ];    
 }
 
 
@@ -64,17 +109,8 @@
     [self.window addSubview:dateWidget];
     
     //Load Page 1
-    CGRect fullScreen = self.window.frame;
-    self.page1 = [[UIView alloc] initWithFrame:fullScreen];
-    self.page1.backgroundColor = [UIColor redColor];
-    UIGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(page1Tapped)];
-    [self.page1 addGestureRecognizer:tapRecognizer];
-
-//    [self.window addSubview:page1];
-//    [self.window sendSubviewToBack:page1];
-    [self flipToPage:page1];
+    [self flipToPage:self.page1];
     
-
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
